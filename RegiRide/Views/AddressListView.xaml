@@ -1,0 +1,92 @@
+﻿<phone:PhoneApplicationPage
+    Navigation:Navigator.Source="{Binding}"
+    Style="{StaticResource DefaultPage}"
+    x:Class="RegiRide.Views.AddressListView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Navigation="clr-namespace:RegiRide.Navigation" FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    xmlns:Custom="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d" d:DesignHeight="696" d:DesignWidth="480"
+    shell:SystemTray.IsVisible="True"
+    DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=AddressListViewModel}">
+
+    <Custom:Interaction.Triggers>
+        <Custom:EventTrigger>
+            <Custom:InvokeCommandAction Command="{Binding LoadAddressListCommand}"/>
+        </Custom:EventTrigger>
+    </Custom:Interaction.Triggers>
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="{Binding BackgroundImageBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock x:Name="ApplicationTitle" Text="{Binding LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock x:Name="PageTitle" Text="{Binding LocalizedResources.AddressListPageTitle, Source={StaticResource LocalizedStrings}}" Margin="12,-7,12,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <StackPanel>
+                <StackPanel>
+                    <ListBox x:Name="AddressListBox" ItemsSource="{Binding AddressList}" SelectedItem="{Binding SelectedAddress, Mode=TwoWay}"  Height="592" Margin="0">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Margin="0,0,0,20">
+                                    <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" Margin="0,2,0,0">
+                                        <TextBlock x:Name="NameTextBlock" TextWrapping="Wrap" Text="{Binding Name}" FontSize="32" Width="336" Height="41.6" Margin="-1,-6,0,2"/>
+                                        <Border BorderBrush="Black" BorderThickness="0" Background="{StaticResource PhoneAccentBrush}" HorizontalAlignment="Right">
+                                            <TextBlock x:Name="NumberOfRidesTextBlock" Text="{Binding Model.NumberOfRides, Mode=OneWay}" FontSize="18.667" Margin="10,0" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{StaticResource PhoneTextAccentStyle}" FontWeight="Bold" Width="31" TextAlignment="Center">
+                            				    <TextBlock.Foreground>
+                            					    <SolidColorBrush Color="{StaticResource PhoneContrastBackgroundColor}"/>
+                            				    </TextBlock.Foreground>
+                                            </TextBlock>
+                                        </Border>
+                                    </StackPanel>
+                                    <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+                                        <TextBlock x:Name="StreetTextBlock" Text="{Binding StreetName}" FontSize="16" Margin="0" d:LayoutOverrides="Width" HorizontalAlignment="Left">
+                            			    <TextBlock.Foreground>
+                            				    <SolidColorBrush Color="{StaticResource PhoneSubtleColor}"/>
+                            			    </TextBlock.Foreground>
+                                        </TextBlock>
+                                    </StackPanel>
+                                    <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+                                        <TextBlock x:Name="PostalCodeTextBlock" Text="{Binding PostalCode}" FontSize="16" Margin="0" d:LayoutOverrides="Width" HorizontalAlignment="Left">
+                            			    <TextBlock.Foreground>
+                            				    <SolidColorBrush Color="{StaticResource PhoneSubtleColor}"/>
+                            			    </TextBlock.Foreground>
+                                        </TextBlock>
+                                        <TextBlock x:Name="PlaceTextBlock" TextWrapping="Wrap" Text="{Binding City}" FontSize="16" HorizontalAlignment="Left" RenderTransformOrigin="0.447,0.48" Margin="8,0,0,0">
+                            			    <TextBlock.Foreground>
+                            				    <SolidColorBrush Color="{StaticResource PhoneSubtleColor}"/>
+                            			    </TextBlock.Foreground>
+                                        </TextBlock>
+                                    </StackPanel>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </Grid>
+
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar>
+            <shell:ApplicationBarIconButton IconUri="/icons/appbar.add.rest.png" Text="Add" Click="ApplicationBarIconButton_Click"/>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+
+</phone:PhoneApplicationPage>
