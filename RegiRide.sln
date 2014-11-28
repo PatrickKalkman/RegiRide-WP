@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Library", "Library", "{DC7FF056-26AE-4A64-924D-B6B868DBCD8B}"
 	ProjectSection(SolutionItems) = preProject
@@ -16,6 +16,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Library", "Library", "{DC7F
 		..\Library\sl4-windowsphone71\Phone7.Fx.dll = ..\Library\sl4-windowsphone71\Phone7.Fx.dll
 		..\Library\DropNet\RestSharp.WindowsPhoneMango.dll = ..\Library\DropNet\RestSharp.WindowsPhoneMango.dll
 		..\Library\sl4-windowsphone71\System.Windows.Interactivity.dll = ..\Library\sl4-windowsphone71\System.Windows.Interactivity.dll
+		Library\Telerik\Telerik.Windows.Controls.Data.dll = Library\Telerik\Telerik.Windows.Controls.Data.dll
+		Library\Telerik\Telerik.Windows.Controls.Primitives.dll = Library\Telerik\Telerik.Windows.Controls.Primitives.dll
+		Library\Telerik\Telerik.Windows.Core.dll = Library\Telerik\Telerik.Windows.Core.dll
+		Library\Telerik\Telerik.Windows.Data.dll = Library\Telerik\Telerik.Windows.Data.dll
 		..\Library\sl4-windowsphone71\Wp7nl.dll = ..\Library\sl4-windowsphone71\Wp7nl.dll
 		..\Library\sl4-windowsphone71\Wp7nl.External.dll = ..\Library\sl4-windowsphone71\Wp7nl.External.dll
 	EndProjectSection
@@ -25,18 +29,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegiRide.Tests", "RegiRide.Tests\RegiRide.Tests.csproj", "{03E26858-CDA5-42F5-8B27-8A2993E4C72E}"
 EndProject
 Global
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 3
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://genesis.visualstudio.com/defaultcollection
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = RegiRide.Tests\\RegiRide.Tests.csproj
-		SccProjectName1 = RegiRide.Tests
-		SccLocalPath1 = RegiRide.Tests
-		SccProjectUniqueName2 = RegiRide\\RegiRide.csproj
-		SccProjectName2 = RegiRide
-		SccLocalPath2 = RegiRide
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|ARM = Debug|ARM
